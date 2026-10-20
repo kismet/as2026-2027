@@ -27,7 +27,7 @@ void cancellaInsieme( Insieme_t **pInsieme );
 // Stampa e conta
 // Restituisco false se l'insieme è vuoto
 bool stampaInsieme( Insieme_t *insieme );
-int cardinalitaInsieme( Insieme_t *insieme );
+int cardinalitaInsieme( Insieme_t *insieme );       // 0 se l'insieme è vuoto
 
 // Operazioni fra insiemi
 Insieme_t *unioneInsiemi( Insieme_t *insieme1, Insieme_t *insieme2 );
@@ -35,7 +35,9 @@ Insieme_t *intersezioneInsiemi( Insieme_t *insieme1, Insieme_t *insieme2 );
 Insieme_t *differenzaInsiemi( Insieme_t *insieme1, Insieme_t *insieme2 );
 
 // Confronti
+// true se insieme1 è contenuto in insieme2, l'insieme vuoto è contenuto in qualsiasi insieme
 bool contenuto( Insieme_t *insieme1, Insieme_t *insieme2 );
+// true se i due insiemi hanno gli stessi elementi, a prescindere dall'ordine
 bool coincidente( Insieme_t *insieme1, Insieme_t *insieme2 );
 
 #endif // GESTIONEINSIEME_H
