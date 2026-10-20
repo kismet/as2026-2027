@@ -153,3 +153,51 @@ int cardinalitaInsieme( Insieme_t *insieme ) {
 
     return contatore;
 }
+
+Insieme_t *unioneInsiemi( Insieme_t *insieme1, Insieme_t *insieme2 ) {
+
+    // Insieme che conterrà l'unione delle due
+    Insieme_t *insiemeUnione = creaInsieme();
+
+    // insieme1 non ha duplicati: ne copio tutti gli elementi
+    for ( Insieme_t *p = insieme1; p != nullptr; p = p->next ) {
+        aggiungiElemento( &insiemeUnione, creaElemento( p->info ) );
+    }
+
+    // Di insieme2 copio solo gli elementi non ancora nell'unione
+    for ( Insieme_t *p = insieme2; p != nullptr; p = p->next ) {
+        if ( !cercaElemento( insiemeUnione, p->info ) ) {
+            aggiungiElemento( &insiemeUnione, creaElemento( p->info ) );
+        }
+    }
+
+    return insiemeUnione;
+}
+
+Insieme_t *intersezioneInsiemi( Insieme_t *insieme1, Insieme_t *insieme2 ) {
+    
+    Insieme_t *insiemeIntersezione = creaInsieme();
+
+    // Copio gli elementi di insieme1 presenti anche in insieme2
+    for ( Insieme_t *p = insieme1; p != nullptr; p = p->next ) {
+        if ( cercaElemento( insieme2, p->info ) ) {
+            aggiungiElemento( &insiemeIntersezione, creaElemento( p->info ) );
+        }
+    }
+
+    return insiemeIntersezione;
+}
+
+Insieme_t *differenzaInsiemi( Insieme_t *insieme1, Insieme_t *insieme2 ) {
+    
+    Insieme_t *insiemeDifferenza = creaInsieme();
+
+    // Copio gli elementi di insieme1 che non sono in insieme2
+    for ( Insieme_t *p = insieme1; p != nullptr; p = p->next ) {
+        if ( !cercaElemento( insieme2, p->info ) ) {
+            aggiungiElemento( &insiemeDifferenza, creaElemento( p->info ) );
+        }
+    }
+
+    return insiemeDifferenza;
+}
