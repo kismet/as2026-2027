@@ -118,3 +118,38 @@ void cancellaInsieme( Insieme_t **pInsieme ) {
         cancellaElementoInTesta( pInsieme );
     }
 }
+
+bool stampaInsieme( Insieme_t *insieme ) {
+
+    if ( checkInsiemeVuoto( insieme ) ) {
+        return false;
+    }
+
+    Insieme_t *pTmp = insieme;
+
+    while ( pTmp != nullptr ) {
+        cout << pTmp->info << endl;
+
+        pTmp = pTmp->next;
+    }
+    
+    return true;
+}
+
+int cardinalitaInsieme( Insieme_t *insieme ) {
+
+    if ( checkInsiemeVuoto( insieme ) ) {
+        return 0;
+    }
+
+    Insieme_t *pTmp = insieme;
+    int contatore = 0;
+
+    while ( pTmp != nullptr ) {
+        contatore++;
+
+        pTmp = pTmp->next;
+    }
+
+    return contatore;
+}
