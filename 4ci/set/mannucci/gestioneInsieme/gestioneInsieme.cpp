@@ -201,3 +201,29 @@ Insieme_t *differenzaInsiemi( Insieme_t *insieme1, Insieme_t *insieme2 ) {
 
     return insiemeDifferenza;
 }
+
+bool contenuto( Insieme_t *insieme1, Insieme_t *insieme2 ) {
+
+    Insieme_t *pTmp = insieme1;
+    
+    while ( pTmp != nullptr ) {
+        if ( !cercaElemento( insieme2, pTmp->info ) ) {
+            return false;
+        }
+
+        pTmp = pTmp->next;
+    }
+
+    return true;
+}
+
+bool coincidente( Insieme_t *insieme1, Insieme_t *insieme2 ) {
+
+    // Due insiemi coincidono se hanno la stessa cardinalità e uno è contenuto nell'altro
+
+    if ( ( cardinalitaInsieme( insieme1 ) != cardinalitaInsieme( insieme2 ) ) || ( !contenuto( insieme1, insieme2 ) ) ) {
+        return false;
+    }
+
+    return true;
+}
