@@ -11,13 +11,17 @@ Insieme_t *creaElemento( int elemento );
 bool checkInsiemeVuoto( Insieme_t *insieme );
 
 // Ricerca
-bool cercaElemento( Insieme_t *insieme, int elemento );
+bool cercaElemento( Insieme_t *insieme, int info );
 
 // Modifica
 // Se l'elemento è già presente nell'insieme restituisco false e cancello l'elemento
 bool aggiungiElemento( Insieme_t **pInsieme, Insieme_t *pElemento );
-// Per rimozione intendo rimozione elemento dall'insieme + cancellazione
-void cancellaElemento( Insieme_t **pInsieme, int elemento );
+// Cancella il singolo nodo, senza toccare l'insieme
+void cancellaElemento( Insieme_t *pElemento );
+// Rimuove e cancella il primo elemento. false se l'insieme è vuoto
+bool cancellaElementoInTesta( Insieme_t **pInsieme );
+// Rimuove e cancella l'elemento con quel valore. false se non è presente
+bool cancellaElementoInInsieme( Insieme_t **pInsieme, int info );
 void cancellaInsieme( Insieme_t **pInsieme );
 
 // Stampa e conta
@@ -34,4 +38,4 @@ Insieme_t *differenzaInsiemi( Insieme_t *insieme1, Insieme_t *insieme2 );
 bool contenuto( Insieme_t *insieme1, Insieme_t *insieme2 );
 bool coincidente( Insieme_t *insieme1, Insieme_t *insieme2 );
 
-#endif
+#endif // GESTIONEINSIEME_H

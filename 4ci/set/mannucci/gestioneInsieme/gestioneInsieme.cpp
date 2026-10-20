@@ -28,13 +28,13 @@ bool checkInsiemeVuoto( Insieme_t *insieme ) {
     return false;
 }
 
-bool cercaElemento( Insieme_t *insieme, int elemento ) {
+bool cercaElemento( Insieme_t *insieme, int info ) {
 
     Insieme_t *pTmp = insieme;
 
     // Insieme vuoto: il ciclo non parte e si ritorna false
     while ( pTmp != nullptr ) {
-        if ( pTmp->info == elemento ) {
+        if ( pTmp->info == info ) {
             return true;
         }
 
@@ -42,4 +42,79 @@ bool cercaElemento( Insieme_t *insieme, int elemento ) {
     }
 
     return false;
+}
+
+bool aggiungiElemento( Insieme_t **pInsieme, Insieme_t *pElemento ) {
+
+    // Utilizzo l'algoritmo per l'inserimento in testa ( più pratico e veloce )
+
+    if ( cercaElemento( ( *pInsieme ), pElemento->info ) ) {
+        cancellaElemento( pElemento );
+
+        return false;
+    }
+    
+    pElemento->next = *pInsieme;
+    *pInsieme = pElemento;
+
+    return true;
+}
+
+void cancellaElemento( Insieme_t *pElemento ) {
+
+    delete pElemento;
+}
+
+bool cancellaElementoInTesta( Insieme_t **pInsieme ) {
+
+    if ( checkInsiemeVuoto( *pInsieme ) ) {
+        return false;
+    }
+
+    Insieme_t *pTmp = ( *pInsieme );
+    ( *pInsieme ) = ( *pInsieme )->next;
+
+    cancellaElemento( pTmp );
+
+    return true;
+}
+
+bool cancellaElementoInInsieme( Insieme_t **pInsieme, int info ) {
+
+    // Elemento assente o insieme vuoto
+    if ( !cercaElemento( ( *pInsieme ), info ) ) {
+        return false;
+    }
+
+    // L'elemento da rimuovere è in testa
+    if ( ( *pInsieme )->info == info ) {
+        cancellaElementoInTesta( pInsieme );
+
+        return true;
+    }
+
+    Insieme_t *pPrev = *pInsieme;
+    Insieme_t *pTmp = pPrev->next;
+    
+    while ( pTmp != nullptr ) {
+        if ( pTmp->info == info ) {
+            pPrev->next = pTmp->next;
+
+            cancellaElemento( pTmp );
+
+            return true;
+        }
+
+        pPrev = pTmp;
+        pTmp = pTmp->next;
+    }
+
+    return false;
+}
+
+void cancellaInsieme( Insieme_t **pInsieme ) {
+
+    while ( !checkInsiemeVuoto( *pInsieme ) ) {
+        cancellaElementoInTesta( pInsieme );
+    }
 }
