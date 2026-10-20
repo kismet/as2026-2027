@@ -27,3 +27,19 @@ bool checkInsiemeVuoto( Insieme_t *insieme ) {
 
     return false;
 }
+
+bool cercaElemento( Insieme_t *insieme, int elemento ) {
+
+    Insieme_t *pTmp = insieme;
+
+    // Insieme vuoto: il ciclo non parte e si ritorna false
+    while ( pTmp != nullptr ) {
+        if ( pTmp->info == elemento ) {
+            return true;
+        }
+
+        pTmp = pTmp->next;
+    }
+
+    return false;
+}

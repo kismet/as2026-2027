@@ -7,10 +7,10 @@
 // Creazione e controllo
 Insieme_t *creaInsieme();
 Insieme_t *creaElemento( int elemento );
+// Restituisce true se l'insieme è vuoto, altrimenti false
 bool checkInsiemeVuoto( Insieme_t *insieme );
 
 // Ricerca
-// Restituisce true se l'insieme è vuoto, altrimenti false
 bool cercaElemento( Insieme_t *insieme, int elemento );
 
 // Modifica
