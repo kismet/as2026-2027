@@ -83,3 +83,19 @@ void unione(nodo_t* head[], int &insieme1, int &insieme2){
 	tmp->next = head[insieme2];
 	
 }
+
+int numero_elementi(nodo_t* head[], int &insieme){
+	
+	int elementi = 0;
+	nodo_t* tmp = head[insieme];
+	
+	while (tmp != nullptr){
+		
+		elementi++;
+		tmp = tmp->next;
+		
+	}
+	
+	return elementi;
+	
+}
