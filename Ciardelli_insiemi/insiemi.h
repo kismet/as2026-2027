@@ -15,7 +15,7 @@ void inserisci_nodo_in_testa(nodo_t* head[], int &insieme, nodo_t* nodo);
 
 void stampa(nodo_t* head[], int &insieme);
 
-nodo_t* rimuovi_nodo(nodo_t* head[], int &insieme);
+nodo_t* rimuovi_nodo(nodo_t* head[], int &insieme, int posizione);
 
 void intersezione(nodo_t* head[], int &insieme);
 

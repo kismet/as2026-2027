@@ -38,3 +38,34 @@ void stampa(nodo_t* head[], int &insieme){
 	cout << endl << endl;
 	
 }
+
+nodo_t* rimuovi_nodo(nodo_t* head[], int &insieme, int posizione){
+	
+	if (head[insieme] == nullptr){
+		
+		return nullptr;
+		
+	}
+	
+	nodo_t* rim = head[insieme];
+	int cont = 1;
+	bool condizione = true;
+	
+	while (rim != nullptr && condizione == true){
+		
+		if (posizione == cont){
+			
+			head[insieme] = head[insieme]->next;
+			rim->next = nullptr;
+			condizione = false;
+			
+		}
+		
+		rim = rim->next;
+		cont++;
+		
+	}
+	
+	return rim;
+	
+}
