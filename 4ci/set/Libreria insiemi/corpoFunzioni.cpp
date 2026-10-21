@@ -234,7 +234,7 @@ bool insiemeContenuto(Insieme_t* pA, Insieme_t* pB){
     }
 }
 
-bool insiemiCoincidenti(Insieme_t* pA, Insieme_t* pB){
+bool insiemiCoincidente(Insieme_t* pA, Insieme_t* pB){
     if (pA == nullptr or pB == nullptr) {
         return false;
     }
