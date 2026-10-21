@@ -55,5 +55,6 @@ void rimuoviElemento(Nodo_t** pHead, int valore){
     if(presente){
         pre->next = curr->next;
         curr->next = nullptr;
+        delete curr;
     }
 }
