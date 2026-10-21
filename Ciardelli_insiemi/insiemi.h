@@ -17,9 +17,9 @@ void stampa(nodo_t* head[], int &insieme);
 
 nodo_t* rimuovi_nodo(nodo_t* head[], int &insieme, int posizione);
 
-void intersezione(nodo_t* head[], int &insieme);
+void unione(nodo_t* head[], int &insieme1, int &insieme2);
 
-void unione(nodo_t* head[], int &insieme);
+void intersezione(nodo_t* head[], int &insieme);
 
 void differenza(nodo_t* head[], int &insieme);
 

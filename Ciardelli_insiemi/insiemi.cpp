@@ -51,7 +51,7 @@ nodo_t* rimuovi_nodo(nodo_t* head[], int &insieme, int posizione){
 	int cont = 1;
 	bool condizione = true;
 	
-	while (rim != nullptr && condizione == true){
+	while (rim->next != nullptr && condizione == true){
 		
 		if (posizione == cont){
 			
@@ -67,5 +67,19 @@ nodo_t* rimuovi_nodo(nodo_t* head[], int &insieme, int posizione){
 	}
 	
 	return rim;
+	
+}
+
+void unione(nodo_t* head[], int &insieme1, int &insieme2){
+	
+	nodo_t* tmp = head[insieme1];
+	
+	while (tmp->next != nullptr){
+		
+		tmp = tmp->next;
+		
+	}
+	
+	tmp->next = head[insieme2];
 	
 }
