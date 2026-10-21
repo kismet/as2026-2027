@@ -13,6 +13,7 @@ void stampaInsieme(Nodo_t* head){
             cout << curr->info << " ";
             curr = curr->next;
         }
+        cout << endl;
     }
 }
 
