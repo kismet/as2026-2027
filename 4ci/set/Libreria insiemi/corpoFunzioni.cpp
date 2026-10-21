@@ -49,20 +49,26 @@ void rimuoviElemento(Nodo_t** pHead, int valore){
     if (*pHead != nullptr){
         Nodo_t* curr = *pHead;
         Nodo_t* pre = nullptr;
-        bool presente = false;
+        bool presente = true;
 
-        while(curr->info != valore and !presente){
+        while(curr->info != valore and presente){
             if(curr->next != nullptr){
                 pre = curr;
                 curr = curr->next;
             }
             else{
-                presente = true;
+                presente = false;
             }
         }
 
         if(presente){
-            pre->next = curr->next;
+            if (pre != nullptr) {
+                pre->next = curr->next;
+            }
+            else {
+                *pHead = curr->next;
+            }
+            
             curr->next = nullptr;
             delete curr;
         }
