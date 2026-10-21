@@ -19,7 +19,7 @@ Nodo_t* differenzaInsiemi(Nodo_t* pA, Nodo_t* pB);
 
 int numeroElementi(Nodo_t* head);
 
-bool insiemiUguali(Nodo_t* pA, Nodo_t* pB);
-
 bool insiemeContenuto(Nodo_t* pA, Nodo_t* pB);
+
+bool insiemeCoincidente(Nodo_t* pA, Nodo_t* pB);
 #endif //AS2026_2027_FIRME_H
