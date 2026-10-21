@@ -17,6 +17,13 @@ void stampaInsieme(Nodo_t* head){
 }
 
 void inserisciElemento(Nodo_t** pHead, int valore){
+    if (*pHead == nullptr) {
+        Nodo_t* aux = new Nodo_t;
+        aux->info = valore;
+        *pHead = aux;
+        return;
+    }
+
     Nodo_t* curr = *pHead;
     bool presente = false;
 
@@ -140,3 +147,4 @@ Nodo_t* intersezioneInsiemi(Nodo_t* pA, Nodo_t* pB){
 
     return intersect;
 }
+
