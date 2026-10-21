@@ -82,25 +82,25 @@ Nodo_t* unioneInsiemi(Nodo_t* pA, Nodo_t* pB){
         return pA;
     }
 
-    Nodo_t* unite = pA;
+    Nodo_t* unite = duplicaInsieme(pA);
     Nodo_t* cursor = pB;
     Nodo_t* check = nullptr;
-    bool presente;
+    bool aggiungere;
 
     while(cursor != nullptr) {
-        presente = false;
+        aggiungere = false;
         check = unite;
 
-        while(check->info != cursor->info and !presente){
+        while(check->info != cursor->info and !aggiungere){
             if(check->next != nullptr){
                 check = check->next;
             }
             else{
-                presente = true;
+                aggiungere = true;
             }
         }
 
-        if(!presente) {
+        if(aggiungere) {
             Nodo_t* aux = new Nodo_t;
             aux->info = cursor->info;
             aux->next = unite;
@@ -157,7 +157,7 @@ Nodo_t* differenzaInsiemi(Nodo_t* pA, Nodo_t* pB){
         return pA;
     }
 
-    Nodo_t* difference = pA;
+    Nodo_t* difference = duplicaInsieme(pA);
     Nodo_t* cursor = pB;
     Nodo_t* check = nullptr;
     bool presente;
@@ -266,7 +266,7 @@ Nodo_t* duplicaInsieme(Nodo_t* head) {
 
     while(cursor != nullptr) {
         Nodo_t* aux = new Nodo_t;
-        
+
         aux->info = cursor->info;
         aux->next = newList;
         newList = aux;
