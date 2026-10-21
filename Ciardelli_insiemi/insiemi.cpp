@@ -28,7 +28,7 @@ void stampa(nodo_t* head[], int &insieme){
 	
 	nodo_t* curr = head[insieme];
 	
-	while(curr != nullptr){
+	while (curr != nullptr){
 		
 		cout << curr->info << " ";
 		curr = curr->next;
@@ -97,5 +97,17 @@ int numero_elementi(nodo_t* head[], int &insieme){
 	}
 	
 	return elementi;
+	
+}
+
+bool uguaglianza(nodo_t* head[], int &insieme1, int &insieme2){
+	
+	if (numero_elementi(head, insieme1) == numero_elementi(head, insieme2)){
+		
+		return true;
+		
+	}
+	
+	return false;
 	
 }
