@@ -62,6 +62,45 @@ void rimuoviElemento(Nodo_t** pHead, int valore){
 }
 
 Nodo_t* unioneInsiemi(Nodo_t* pA, Nodo_t* pB){
+    if (pA == nullptr) {
+        if (pB == nullptr) {
+            return nullptr;
+        }
+        else {
+            return pB;
+        }
+    }
+    else if (pB == nullptr) {
+        return pA;
+    }
 
-    return nullptr;
+    Nodo_t* unite = pA;
+    Nodo_t* cursor = pB;
+    Nodo_t* check = nullptr;
+    bool presente;
+
+    while(cursor != nullptr) {
+        presente = false;
+        check = unite;
+
+        while(check->info != cursor->info and !presente){
+            if(check->next != nullptr){
+                check = check->next;
+            }
+            else{
+                presente = true;
+            }
+        }
+
+        if(!presente) {
+            Nodo_t* aux = new Nodo_t;
+            aux->info = cursor->info;
+            aux->next = unite;
+            unite = aux;
+        }
+
+        cursor = cursor->next;
+    }
+
+    return unite;
 }
