@@ -23,3 +23,18 @@ void inserisci_nodo_in_testa(nodo_t* head[], int &insieme, nodo_t* nodo){
 	head[insieme] = nodo;
 	
 }
+
+void stampa(nodo_t* head[], int &insieme){
+	
+	nodo_t* curr = head[insieme];
+	
+	while(curr != nullptr){
+		
+		cout << curr->info << " ";
+		curr = curr->next;
+		
+	}
+	
+	cout << endl << endl;
+	
+}
