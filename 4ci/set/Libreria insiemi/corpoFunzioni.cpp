@@ -258,3 +258,21 @@ bool insiemiCoincidente(Nodo_t* pA, Nodo_t* pB){
         return false;
     }
 }
+
+//FUNZIONE STRETTAMENTE DI APPOGGIO
+Nodo_t* duplicaInsieme(Nodo_t* head) {
+    Nodo_t* cursor = head;
+    Nodo_t* newList = nullptr;
+
+    while(cursor != nullptr) {
+        Nodo_t* aux = new Nodo_t;
+        
+        aux->info = cursor->info;
+        aux->next = newList;
+        newList = aux;
+
+        cursor = cursor->next;
+    }
+
+    return newList;
+}
