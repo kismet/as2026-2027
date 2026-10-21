@@ -149,3 +149,38 @@ Nodo_t* intersezioneInsiemi(Nodo_t* pA, Nodo_t* pB){
     return intersect;
 }
 
+Nodo_t* differenzaInsiemi(Nodo_t* pA, Nodo_t* pB){
+    if (pA == nullptr) {
+        return nullptr;
+    }
+    else if (pB == nullptr) {
+        return pA;
+    }
+
+    Nodo_t* difference = pA;
+    Nodo_t* cursor = pB;
+    Nodo_t* check = nullptr;
+    bool presente;
+
+    while(cursor != nullptr) {
+        presente = true;
+        check = pA;
+
+        while(check->info != cursor->info and presente){
+            if(check->next != nullptr){
+                check = check->next;
+            }
+            else{
+                presente = false;
+            }
+        }
+
+        if(presente) {
+            rimuoviElemento(&difference, cursor->info);
+        }
+
+        cursor = cursor->next;
+    }
+
+    return difference;
+}
