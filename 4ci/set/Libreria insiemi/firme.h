@@ -21,7 +21,7 @@ int numeroElementi(Insieme_t* head);
 
 bool insiemeContenuto(Insieme_t* pA, Insieme_t* pB);
 
-bool insiemiCoincidente(Insieme_t* pA, Insieme_t* pB);
+bool insiemiCoincidenti(Insieme_t* pA, Insieme_t* pB);
 
 Insieme_t* duplicaInsieme(Insieme_t* head);
 #endif //AS2026_2027_FIRME_H
