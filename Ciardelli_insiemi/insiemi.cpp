@@ -12,4 +12,14 @@ nodo_t* crea_nodo(int valore){
 	
 }
 
-
+void inserisci_nodo_in_testa(nodo_t* head[], int &insieme, nodo_t* nodo){
+	
+	if (head[insieme] != nullptr){
+		
+		nodo->next = head[insieme];
+		
+	}
+	
+	head[insieme] = nodo;
+	
+}
