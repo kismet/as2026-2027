@@ -21,7 +21,7 @@ void unione(nodo_t* head[], int &insieme1, int &insieme2);
 
 void intersezione(nodo_t* head[], int &insieme);
 
-int differenza(nodo_t* head[], int &insieme);
+int differenza(nodo_t* head[], int &insieme1, int &insieme2);
 
 int numero_elementi(nodo_t* head[], int &insieme);
 

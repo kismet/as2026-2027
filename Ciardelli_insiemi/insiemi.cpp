@@ -111,3 +111,22 @@ bool uguaglianza(nodo_t* head[], int &insieme1, int &insieme2){
 	return false;
 	
 }
+
+int differenza(nodo_t* head[], int &insieme1, int &insieme2){
+	
+	int dif, ins1 = numero_elementi(head, insieme1), ins2 = numero_elementi(head, insieme2);
+	
+	if (ins1 >= ins2){
+		
+		dif = ins1 - ins2;
+		
+	}
+	else {
+		
+		dif = ins2 - ins1;
+		
+	}
+	
+	return dif;
+	
+}
