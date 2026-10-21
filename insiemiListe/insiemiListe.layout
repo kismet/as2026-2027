@@ -1,0 +1,42 @@
+[
+    {
+        "caretX": 25,
+        "caretY": 29,
+        "filename": "D:/Scuola/Quarta superiore/informatica/c++/insiemiListe/main.cpp",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 1,
+        "top": 114
+    },
+    {
+        "caretX": 2,
+        "caretY": 135,
+        "filename": "D:/Scuola/Quarta superiore/informatica/c++/insiemiListe/funzioni.cpp",
+        "focused": true,
+        "isOpen": true,
+        "left": 0,
+        "order": 0,
+        "top": 2147
+    },
+    {
+        "caretX": 59,
+        "caretY": 13,
+        "filename": "D:/Scuola/Quarta superiore/informatica/c++/insiemiListe/funzioni.h",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 2,
+        "top": 0
+    },
+    {
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "D:/Scuola/Quarta superiore/informatica/c++/insiemiListe/types.h",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 3,
+        "top": 0
+    }
+]
