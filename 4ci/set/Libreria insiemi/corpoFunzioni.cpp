@@ -227,3 +227,34 @@ bool insiemeContenuto(Nodo_t* pA, Nodo_t* pB){
         return false;
     }
 }
+
+bool insiemiCoincidente(Nodo_t* pA, Nodo_t* pB){
+    if (pA == nullptr or pB == nullptr) {
+        return false;
+    }
+    else if (numeroElementi(pA) != numeroElementi(pB)) {
+        return false;
+    }
+
+    Nodo_t* cursor = pB;
+    Nodo_t* check = pA;
+
+    while(cursor != nullptr) {
+        while (check != nullptr) {
+            if(check->info != cursor->info) {
+                check = check->next;
+            }
+            else {
+                if (cursor->next != nullptr) {
+                    cursor = cursor->next;
+                    check = pA;
+                }
+                else {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+}
