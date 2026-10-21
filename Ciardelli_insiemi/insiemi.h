@@ -19,7 +19,7 @@ nodo_t* rimuovi_nodo(nodo_t* head[], int &insieme, int posizione);
 
 void unione(nodo_t* head[], int &insieme1, int &insieme2);
 
-void intersezione(nodo_t* head[], int &insieme);
+void intersezione(nodo_t* head[], int &insieme1, int &insieme2);
 
 int differenza(nodo_t* head[], int &insieme1, int &insieme2);
 

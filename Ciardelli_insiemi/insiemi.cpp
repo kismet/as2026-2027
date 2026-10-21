@@ -195,3 +195,34 @@ bool insieme_contenuto(nodo_t* head[], int &insieme1, int &insieme2){
 	return false;
 	
 }
+
+void intersezione(nodo_t* head[], int &insieme1, int &insieme2){
+	
+	nodo_t* tmp1 = head[insieme1];
+	nodo_t* tmp2 = head[insieme2];
+	nodo_t* inters = nullptr;
+	
+	while (tmp2 != nullptr){
+		
+		while (tmp1 != nullptr){
+			
+			if (tmp2->info == tmp1->info){
+				
+				inters->next = tmp1;
+				
+			}
+			else {
+				
+				cout << "Non c'e' intersezione tra i due insiemi." << endl << endl;
+				
+			}
+			
+			tmp1 = tmp1->next;
+			
+		}
+		
+		tmp2 = tmp2->next;
+		
+	}
+	
+}
