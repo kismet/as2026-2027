@@ -104,3 +104,39 @@ Nodo_t* unioneInsiemi(Nodo_t* pA, Nodo_t* pB){
 
     return unite;
 }
+
+Nodo_t* intersezioneInsiemi(Nodo_t* pA, Nodo_t* pB){
+    if (pA == nullptr or pB == nullptr) {
+        return nullptr;
+    }
+
+    Nodo_t* intersect = nullptr;
+    Nodo_t* cursor = pA;
+    Nodo_t* check = nullptr;
+    bool presente;
+
+    while(cursor != nullptr) {
+        presente = false;
+        check = pB;
+
+        while(check->info != cursor->info and !presente){
+            if(check->next != nullptr){
+                check = check->next;
+            }
+            else{
+                presente = true;
+            }
+        }
+
+        if(presente) {
+            Nodo_t* aux = new Nodo_t;
+            aux->info = cursor->info;
+            aux->next = intersect;
+            intersect = aux;
+        }
+
+        cursor = cursor->next;
+    }
+
+    return intersect;
+}
