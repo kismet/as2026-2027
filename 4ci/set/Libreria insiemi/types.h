@@ -4,8 +4,8 @@
 
 #ifndef AS2026_2027_TYPES_H
 #define AS2026_2027_TYPES_H
-typedef struct Nodo{
+typedef struct Insieme{
     int info;
-    struct Nodo* next;
-}Nodo_t;
+    struct Insieme* next;
+}Insieme_t;
 #endif //AS2026_2027_TYPES_H

@@ -5,9 +5,9 @@
 #include "firme.h"
 using namespace std;
 
-void stampaInsieme(Nodo_t* head){
+void stampaInsieme(Insieme_t* head){
     if(head != nullptr){
-        Nodo_t* curr = head;
+        Insieme_t* curr = head;
 
         while(curr != nullptr){
             cout << curr->info << " ";
@@ -17,15 +17,15 @@ void stampaInsieme(Nodo_t* head){
     }
 }
 
-void inserisciElemento(Nodo_t** pHead, int valore){
+void inserisciElemento(Insieme_t** pHead, int valore){
     if (*pHead == nullptr) {
-        Nodo_t* aux = new Nodo_t;
+        Insieme_t* aux = new Insieme_t;
         aux->info = valore;
         *pHead = aux;
         return;
     }
 
-    Nodo_t* curr = *pHead;
+    Insieme_t* curr = *pHead;
     bool presente = false;
 
     while(curr->info != valore and !presente){
@@ -38,17 +38,17 @@ void inserisciElemento(Nodo_t** pHead, int valore){
     }
 
     if(!presente){
-        Nodo_t* aux = new Nodo_t;
+        Insieme_t* aux = new Insieme_t;
         aux->info = valore;
         aux->next = *pHead;
         *pHead = aux;
     }
 }
 
-void rimuoviElemento(Nodo_t** pHead, int valore){
+void rimuoviElemento(Insieme_t** pHead, int valore){
     if (*pHead != nullptr){
-        Nodo_t* curr = *pHead;
-        Nodo_t* pre = nullptr;
+        Insieme_t* curr = *pHead;
+        Insieme_t* pre = nullptr;
         bool presente = true;
 
         while(curr->info != valore and presente){
@@ -68,14 +68,14 @@ void rimuoviElemento(Nodo_t** pHead, int valore){
             else {
                 *pHead = curr->next;
             }
-            
+
             curr->next = nullptr;
             delete curr;
         }
     }
 }
 
-Nodo_t* unioneInsiemi(Nodo_t* pA, Nodo_t* pB){
+Insieme_t* unioneInsiemi(Insieme_t* pA, Insieme_t* pB){
     if (pA == nullptr) {
         if (pB == nullptr) {
             return nullptr;
@@ -88,9 +88,9 @@ Nodo_t* unioneInsiemi(Nodo_t* pA, Nodo_t* pB){
         return pA;
     }
 
-    Nodo_t* unite = duplicaInsieme(pA);
-    Nodo_t* cursor = pB;
-    Nodo_t* check = nullptr;
+    Insieme_t* unite = duplicaInsieme(pA);
+    Insieme_t* cursor = pB;
+    Insieme_t* check = nullptr;
     bool aggiungere;
 
     while(cursor != nullptr) {
@@ -107,7 +107,7 @@ Nodo_t* unioneInsiemi(Nodo_t* pA, Nodo_t* pB){
         }
 
         if(aggiungere) {
-            Nodo_t* aux = new Nodo_t;
+            Insieme_t* aux = new Insieme_t;
             aux->info = cursor->info;
             aux->next = unite;
             unite = aux;
@@ -119,14 +119,14 @@ Nodo_t* unioneInsiemi(Nodo_t* pA, Nodo_t* pB){
     return unite;
 }
 
-Nodo_t* intersezioneInsiemi(Nodo_t* pA, Nodo_t* pB){
+Insieme_t* intersezioneInsiemi(Insieme_t* pA, Insieme_t* pB){
     if (pA == nullptr or pB == nullptr) {
         return nullptr;
     }
 
-    Nodo_t* intersect = nullptr;
-    Nodo_t* cursor = pA;
-    Nodo_t* check = nullptr;
+    Insieme_t* intersect = nullptr;
+    Insieme_t* cursor = pA;
+    Insieme_t* check = nullptr;
     bool presente;
 
     while(cursor != nullptr) {
@@ -143,7 +143,7 @@ Nodo_t* intersezioneInsiemi(Nodo_t* pA, Nodo_t* pB){
         }
 
         if(presente) {
-            Nodo_t* aux = new Nodo_t;
+            Insieme_t* aux = new Insieme_t;
             aux->info = cursor->info;
             aux->next = intersect;
             intersect = aux;
@@ -155,7 +155,7 @@ Nodo_t* intersezioneInsiemi(Nodo_t* pA, Nodo_t* pB){
     return intersect;
 }
 
-Nodo_t* differenzaInsiemi(Nodo_t* pA, Nodo_t* pB){
+Insieme_t* differenzaInsiemi(Insieme_t* pA, Insieme_t* pB){
     if (pA == nullptr) {
         return nullptr;
     }
@@ -163,9 +163,9 @@ Nodo_t* differenzaInsiemi(Nodo_t* pA, Nodo_t* pB){
         return pA;
     }
 
-    Nodo_t* difference = duplicaInsieme(pA);
-    Nodo_t* cursor = pB;
-    Nodo_t* check = nullptr;
+    Insieme_t* difference = duplicaInsieme(pA);
+    Insieme_t* cursor = pB;
+    Insieme_t* check = nullptr;
     bool presente;
 
     while(cursor != nullptr) {
@@ -191,11 +191,11 @@ Nodo_t* differenzaInsiemi(Nodo_t* pA, Nodo_t* pB){
     return difference;
 }
 
-int numeroElementi(Nodo_t* head){
+int numeroElementi(Insieme_t* head){
     int nElem = 0;
 
     if(head != nullptr){
-        Nodo_t* curr = head;
+        Insieme_t* curr = head;
 
         while(curr != nullptr){
             nElem++;
@@ -206,13 +206,13 @@ int numeroElementi(Nodo_t* head){
     return nElem;
 }
 
-bool insiemeContenuto(Nodo_t* pA, Nodo_t* pB){
+bool insiemeContenuto(Insieme_t* pA, Insieme_t* pB){
     if (pA == nullptr or pB == nullptr) {
         return false;
     }
 
-    Nodo_t* cursor = pB;
-    Nodo_t* check = pA;
+    Insieme_t* cursor = pB;
+    Insieme_t* check = pA;
 
     while(cursor != nullptr) {
         while (check != nullptr) {
@@ -234,7 +234,7 @@ bool insiemeContenuto(Nodo_t* pA, Nodo_t* pB){
     }
 }
 
-bool insiemiCoincidente(Nodo_t* pA, Nodo_t* pB){
+bool insiemiCoincidente(Insieme_t* pA, Insieme_t* pB){
     if (pA == nullptr or pB == nullptr) {
         return false;
     }
@@ -242,8 +242,8 @@ bool insiemiCoincidente(Nodo_t* pA, Nodo_t* pB){
         return false;
     }
 
-    Nodo_t* cursor = pB;
-    Nodo_t* check = pA;
+    Insieme_t* cursor = pB;
+    Insieme_t* check = pA;
 
     while(cursor != nullptr) {
         while (check != nullptr) {
@@ -266,12 +266,12 @@ bool insiemiCoincidente(Nodo_t* pA, Nodo_t* pB){
 }
 
 //FUNZIONE STRETTAMENTE DI APPOGGIO
-Nodo_t* duplicaInsieme(Nodo_t* head) {
-    Nodo_t* cursor = head;
-    Nodo_t* newList = nullptr;
+Insieme_t* duplicaInsieme(Insieme_t* head) {
+    Insieme_t* cursor = head;
+    Insieme_t* newList = nullptr;
 
     while(cursor != nullptr) {
-        Nodo_t* aux = new Nodo_t;
+        Insieme_t* aux = new Insieme_t;
 
         aux->info = cursor->info;
         aux->next = newList;
