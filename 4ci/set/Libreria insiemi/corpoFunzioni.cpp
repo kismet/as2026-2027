@@ -38,23 +38,30 @@ void inserisciElemento(Nodo_t** pHead, int valore){
 }
 
 void rimuoviElemento(Nodo_t** pHead, int valore){
-    Nodo_t* curr = *pHead;
-    Nodo_t* pre = nullptr;
-    bool presente = false;
+    if (*pHead != nullptr){
+        Nodo_t* curr = *pHead;
+        Nodo_t* pre = nullptr;
+        bool presente = false;
 
-    while(curr->info != valore and !presente){
-        if(curr->next != nullptr){
-            pre = curr;
-            curr = curr->next;
+        while(curr->info != valore and !presente){
+            if(curr->next != nullptr){
+                pre = curr;
+                curr = curr->next;
+            }
+            else{
+                presente = true;
+            }
         }
-        else{
-            presente = true;
+
+        if(presente){
+            pre->next = curr->next;
+            curr->next = nullptr;
+            delete curr;
         }
     }
+}
 
-    if(presente){
-        pre->next = curr->next;
-        curr->next = nullptr;
-        delete curr;
-    }
+Nodo_t* unioneInsiemi(Nodo_t* pA, Nodo_t* pB){
+
+    return nullptr;
 }
