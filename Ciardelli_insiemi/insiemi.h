@@ -27,6 +27,6 @@ int numero_elementi(nodo_t* head[], int &insieme);
 
 bool uguaglianza(nodo_t* head[], int &insieme1, int &insieme2);
 
-bool insieme_contenuto(nodo_t* head[], int &insieme);
+bool insieme_contenuto(nodo_t* head[], int &insieme1, int &insieme2);
 
 #endif

@@ -130,3 +130,68 @@ int differenza(nodo_t* head[], int &insieme1, int &insieme2){
 	return dif;
 	
 }
+
+bool insieme_contenuto(nodo_t* head[], int &insieme1, int &insieme2){
+	
+	nodo_t* tmp1 = head[insieme1];
+	nodo_t* tmp2 = head[insieme2];
+	int ins1 = numero_elementi(head, insieme1), ins2 = numero_elementi(head, insieme2), tot = 0;
+	
+	if (ins1 >= ins2){
+		
+		while (tmp2 != nullptr){
+			
+			while (tmp1 != nullptr){
+				
+				if (tmp2->info == tmp1->info){
+					
+					tot++;
+					
+				}
+				
+				tmp1 = tmp1->next;
+				
+			}
+			
+			tmp2 = tmp2->next;
+			
+		}
+		
+		if (tot == ins2){
+			
+			return true;
+			
+		}
+		
+	}
+	else {
+		
+		while (tmp1 != nullptr){
+			
+			while (tmp2 != nullptr){
+				
+				if (tmp1->info == tmp2->info){
+					
+					tot++;
+					
+				}
+				
+				tmp2 = tmp2->next;
+				
+			}
+			
+			tmp1 = tmp1->next;
+			
+		}
+		
+		if (tot == ins1){
+			
+			return true;
+			
+		}
+		
+	}
+	
+	return false;
+	
+}
