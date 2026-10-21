@@ -184,3 +184,18 @@ Nodo_t* differenzaInsiemi(Nodo_t* pA, Nodo_t* pB){
 
     return difference;
 }
+
+int numeroElementi(Nodo_t* head){
+    int nElem = 0;
+
+    if(head != nullptr){
+        Nodo_t* curr = head;
+
+        while(curr != nullptr){
+            nElem++;
+            curr = curr->next;
+        }
+    }
+
+    return nElem;
+}
