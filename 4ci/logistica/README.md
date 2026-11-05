@@ -15,7 +15,7 @@ Il sistema deve essere in grado di:
 #### Suggerimento API
 1. bool spedisciPacco(Pacco p);
 1. void printPacchi(string provincia);
-1. void printAll(Pacco* elenco[]); 
+1. void printAll(Pacco* elenco[], int nprovincie); 
 
 ### Fase 2 (Intermedio - Voto 7-8): 
 Il sistema deve poter cambiare la destinazione di un pacco oppure rimuovere pacchi dalla consegna perchè danneggiati o pericolosi. 
@@ -26,4 +26,4 @@ Il sistema deve poter cambiare la destinazione di un pacco oppure rimuovere pacc
 ### Fase 3 (Eccellenza - Voto 9-10): 
 Sapendo che ogni furgone può andare in una sola destinazione e che ci sono dei limiti di spazio e peso: massimo 1500kg di merce  o massimo 200 pacchi, creare e stampare gli elenchi di spedizione della merce, escludendo i pacchi che sono stati rimossi dalla consegna.
 #### Suggerimento API
-1. void stampaBolleCarico(Pacco* elenco[]); 
+1. void stampaBolleCarico(Pacco* elenco[], int nprovincie); 
