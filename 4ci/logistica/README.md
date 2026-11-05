@@ -13,7 +13,7 @@ Il sistema deve essere in grado di:
  - stampare tutti i pacchi da spedire per una specifica destinazionene
  - stampare tutti i pacchi da spedire.
 #### Suggerimento API
-1. bool spedisciPacco(Pacco p);
+1. bool spedisciPacco(Pacco* elenco[], Pacco p);
 1. void printPacchi(string provincia);
 1. void printAll(Pacco* elenco[], int nprovincie); 
 
