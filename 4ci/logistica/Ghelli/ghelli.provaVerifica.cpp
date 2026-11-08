@@ -31,7 +31,7 @@ void inizialize(){
 		provincie[i] = nullptr;
 	}
 }
-
+//Non funxions per numero di provincie elevato
 int GetIndex (string provincia){
 	if (provincia == "Pisa" or provincia == "pisa") return 0;
 	if (provincia == "Firenze" or provincia == "firenze") return 1;
@@ -53,7 +53,7 @@ bool spedisciPacco(Info_t p) {
 		cout << "provincia non valida" << endl;
 		return false;
 	}
-	
+	//Non compila creaNodo vuole un puntatore ad Info_t e seondo come la riscrivi crei un problema di memory corruption
 	Nodo_t* nuovoNodo = creaNodo(p);
 	
 	if (provincie[indice] == nullptr) {
@@ -82,7 +82,7 @@ void printPacchi(string provincia) {
 		cout << "non ci sono pacchi in attesa per questa provincia" << endl;
 		return;
 	}
-	
+	//Non stampi la provincia
 	while (curr != nullptr) {
 		cout << "ID derl pacco: " << curr->info.id << " ,peso del pacco: " << curr->info.peso << " kg" << endl;
 		curr = curr->next;
@@ -93,6 +93,7 @@ void printAll(Nodo_t* elenco[], int nprovincie) {
 	bool vuotoTotale = true;
 	
 	for (int i = 0; i < nprovincie; i++) {
+		//Potevi riusare la funzion printPacchi
 		cout << "destinazione: " << nomiProvince[i] << endl;
 		Nodo_t* curr = elenco[i];
 		if (curr == nullptr) {
