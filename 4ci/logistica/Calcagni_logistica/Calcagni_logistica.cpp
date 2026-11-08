@@ -15,7 +15,8 @@ void inserisciPacco(Pacco_t* elenco, string ID, int Peso, string provincia){
 	nuovoPacco->peso = Peso;
 	nuovoPacco->destinazione = provincia;
 	nuovoPacco->next = nullptr;
-	
+	//non funziona per la lista vuota perché 
+ //non cambi elenco 
 	Pacco_t* aux = elenco;
 	while(aux != nullptr){
 		aux = aux->next;
@@ -24,6 +25,7 @@ void inserisciPacco(Pacco_t* elenco, string ID, int Peso, string provincia){
 }
 
 void stampaPacchiDataProvincia(Pacco_t* elenco[], int nProvince, string provincia){
+//non selezioni la lista da cui stampare 
 	Pacco_t* aux = nullptr;
 	
 	while(aux != nullptr){
