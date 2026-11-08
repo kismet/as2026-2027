@@ -15,7 +15,7 @@ static void inserisciInTesta( Pacco_t **phead, Pacco_t *pAux ) {
 }
 
 static void rimuoviPacco( Pacco_t **phead, Pacco_t *pAux ) {
-
+    //Questa non è quella richiesta dal testo, giusto?
     // TODO: check se solo 1 pacco
 
     Pacco_t *pPrev;
@@ -35,6 +35,7 @@ bool inserisciPacco( Pacco_t *pPacco, ElemArray_t province[] ) {
 
     for ( int i = 0; i < NUMPROVINCE; i++ ) {
         if ( pPacco->pacco.destinazione == province[i].provincia ) {
+            //Inserimento doveva essere in coda
             inserisciInTesta( &province[i].head, pPacco );
 
             return true;
@@ -52,7 +53,7 @@ void stampaPacchiProvincia(ElemArray_t province[], std::string destinazione ) {
         if ( province[i].provincia == destinazione ) {
             // Stampo
             int i = 1;
-
+            //Potevi riusare stampa pacchi
             for ( Pacco_t *pTmp = province[i].head ; pTmp != nullptr; pTmp = pTmp->next ) {
                 cout << "Pacco: " << i << endl;
                 cout << "ID: " << pTmp->pacco.id << endl;
@@ -100,6 +101,7 @@ bool cambiaDestinazione( int id, std::string oldProvincia, std::string newDestin
         if ( province[i].provincia == oldProvincia ) {
             for ( Pacco_t *pTmp = province[i].head ; pTmp != nullptr; pTmp = pTmp->next ) {
                 if ( pTmp->pacco.id == id ) {
+                    //Andava spostato anche nella lista corretta
                     pTmp->pacco.destinazione = newDestinazione;
 
                     return true;
