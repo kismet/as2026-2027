@@ -8,7 +8,8 @@
 int main() {
 
     Provincia elenco[NPROVINCE];
-
+    //MOLTO BRAVO!
+    
     // Inizializzazione delle province
     elenco[0].nome = "Pisa";
     elenco[1].nome = "Firenze";
