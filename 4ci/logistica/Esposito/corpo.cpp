@@ -71,6 +71,7 @@ void printAll(){
 	Nodo_t* cursor = nullptr;
 	for(int i = 0; i < 5; i++){
 		cursor = elencoProvince[i];
+		//Potevi riusare printPacchi
 		while(cursor != nullptr){
 			cout << cursor->pacco.identificativo << "  " << cursor->pacco.peso << "  " << cursor->pacco.destinazione << endl;
 			cursor = cursor->next;
@@ -84,6 +85,7 @@ bool cambiaDestinazione(int identity, string oldDestination, string newDestinati
 	}
 	Nodo_t* cursor = elencoProvince[index];
 	Nodo_t* pre = nullptr;
+	//La condizione scritta cosi ti porta a "segmentation fault" quando arrivi a cursor == nullptr
 	while(cursor->pacco.identificativo != identity and cursor != nullptr){
 		pre = cursor;
 		cursor = cursor->next;
@@ -91,6 +93,7 @@ bool cambiaDestinazione(int identity, string oldDestination, string newDestinati
 	if(cursor == nullptr) return false;
 	pre->next = cursor->next;
 	cursor->next = nullptr;
+	//Avresti potuto riusare la funzione spedisciPacco
 	index = getProvincia(newDestination);
 	if(index == -1){
 		return false;
