@@ -31,7 +31,7 @@ int letteraIniziale(string dest){
 void inserisciPacco(node_t* nodo, string provincia){
 	
 	int iniziale = letteraIniziale(provincia);
-	
+	//inserisci in testa, ma va inserito in coda
 	if (elenco[iniziale] != nullptr){
 		
 		nodo->next = elenco[iniziale];
@@ -41,3 +41,5 @@ void inserisciPacco(node_t* nodo, string provincia){
 	elenco[iniziale] = nodo;
 	
 }
+
+//manca il resto
