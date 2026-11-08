@@ -57,6 +57,7 @@ void initialize(){
 
 // Funzione ausiliaria per trovare l'indice della provincia nell'array
 int getIndex(string provincia) {
+	//Non scala in caso di tante provincie
 	if (provincia == "Pisa" || provincia == "pisa") return 0;
 	if (provincia == "Firenze" || provincia == "firenze") return 1;
 	if (provincia == "Prato" || provincia == "prato") return 2;
@@ -94,7 +95,7 @@ bool spedisciPacco(Info_t p) {
 		}
 		curr->next = nuovoNodo;
 	}
-	
+	//Le cout nelle funzioni non andrebbero mai usate
 	cout << "Pacco ID " << p.id << " registrato con successo per " << p.destinazione << "." << endl;
 	return true;
 }
@@ -109,7 +110,8 @@ void printPacchi(string provincia) {
 	if (curr == nullptr) {
 		cout << "Nessun pacco in attesa per questa provincia." << endl;
 	}
-	
+
+	//Non stampi il nome della provincia
 	while (curr != nullptr) {
 		cout << "ID Pacco: " << curr->info.id << " Peso: " << curr->info.peso << " kg" << endl;
 		curr = curr->next;
@@ -121,6 +123,7 @@ void printAll(Nodo_t* elenco[], int nprovincie){
 	string nomiProvince[5] = {"Pisa", "Firenze", "Prato", "Lucca", "Livorno"};
 	bool vuotoTotale = true;
 	
+	//Qui potevi usare printPacchi
 	for (int i = 0; i < nprovincie; i++) {
 		cout << "Destinazione: " << nomiProvince[i] << endl;
 		Nodo_t* curr = elenco[i];
