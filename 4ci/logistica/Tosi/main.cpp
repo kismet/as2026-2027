@@ -22,7 +22,7 @@ struct Furgone {
 };
 
 static Coda_t* elenco[N_PROVINCE];
-
+//Non funziona per tante provincie
 int ritornaIndice(string destinazione) {
 
     if(destinazione == "Pisa") return 0;
@@ -108,6 +108,7 @@ bool cambiaDestinazione(int id, string nuovaprovincia) {
 
         while (temp != nullptr) {
             if (temp->info.id == id) {
+                //Va spostato nella coda giusta
                 temp->info.destinazione = nuovaprovincia;
                 return true;
             }
