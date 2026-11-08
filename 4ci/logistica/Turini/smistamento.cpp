@@ -3,6 +3,7 @@
 bool insersciPacco(provincie_t Provincie[], pacco_t* pack, int numeroProvincie){
 	bool riuscito = true;
 	int salvaI = -1;
+	//QUesto in una funzione!
 	for(int i = 0; i < numeroProvincie; i++){
 		if (Provincie[i].provincia == pack->provincia) {
 			salvaI = i;
@@ -55,6 +56,7 @@ void printAll(provincie_t Provincie[], int numeroProvincie){
 	}
 }
 
+//Sbagliato aggiungere int ID tra i parametri
 bool cambiaDestinazione(provincie_t Provincie[], int ID, string vecchiaprovincia, string nuovaprovincia, int numeroProvincie){
 	bool risultato = true;
 	int salvaI = -1;
