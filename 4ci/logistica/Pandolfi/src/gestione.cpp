@@ -14,6 +14,7 @@ Pacco_t* creaPacco(int id, float peso, string destinazione) {
 }
 
 void inserimentoPacchi(Pacco_t* province[], int id, float peso, string destinazione) {
+    //Questo codice in una funzione
     int indice=-1;
     for (int i=0;i<5;i++) {
         if (province[i]==destinazione) {
@@ -60,6 +61,7 @@ void stampaProvincia(Pacco_t* province[], string destinazione) {
         cout<<"Errore";
     }
     else {
+        //Non stampi la provincia
         while (curr!=nullptr) {
             cout<<"ID: "<<curr->pacco.id<<". Peso: "<<curr->pacco.peso<<"kg.";
             curr=curr->next;
@@ -70,7 +72,7 @@ void stampaProvincia(Pacco_t* province[], string destinazione) {
 void stampaPacchi(Pacco_t* province[]) {
     for (int i=0;i<5;i++) {
         cout<<"Province: "<<province[i]<<endl;
-
+        //Potevi riusare stampaProvincia
         Pacco_t* curr=province[i];
         if (curr==nullptr) {
             cout<<"Errore";
