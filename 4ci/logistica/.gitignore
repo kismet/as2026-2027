@@ -1,0 +1,6 @@
+*.ico
+*.dev
+*.layout
+*.debug
+*.bookmarks
+.idea
